@@ -1,4 +1,4 @@
-package com.fingolfinor.AlgoDS.sorting;
+package com.fingolfinor.AlgoDS.algorithms;
 
 import java.util.Arrays;
 

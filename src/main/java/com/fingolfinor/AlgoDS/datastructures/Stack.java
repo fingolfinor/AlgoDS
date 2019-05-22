@@ -1,6 +1,13 @@
 package com.fingolfinor.AlgoDS.datastructures;
 
-// TODO: Re-Implement to take Objects of any type -  and probably using a LinkedList
+
+/**
+ * Stacks
+ *
+ * @TODO move notes here.
+ * @TODO Re-Implement to take Objects of any type -  and probably using a LinkedList
+ *
+ */
 public class Stack {
     private int maxSize;
     private long[] stackArray;      //Container storing items

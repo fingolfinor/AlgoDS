@@ -1,4 +1,4 @@
-package com.fingolfinor.AlgoDS.searching;
+package com.fingolfinor.AlgoDS.algorithms;
 
 import java.util.List;
 

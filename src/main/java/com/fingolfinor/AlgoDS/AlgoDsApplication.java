@@ -1,12 +1,11 @@
 package com.fingolfinor.AlgoDS;
 
-//import org.springframework.boot.SpringApplication;
 import com.fingolfinor.AlgoDS.datastructures.*;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.LinkedList;
-import com.fingolfinor.AlgoDS.searching.Searching;
-import com.fingolfinor.AlgoDS.sorting.Sorting;
+import com.fingolfinor.AlgoDS.algorithms.Searching;
+import com.fingolfinor.AlgoDS.algorithms.Sorting;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
@@ -17,7 +16,29 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class AlgoDsApplication {
 
-	//TODO maybe One Day as a Spring App
+
+    /**
+     *
+     *
+     *
+     *
+     *
+     *
+     * Move below to Unit TEsts then consider removing this app file to avoid confusion.
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     */
+
+
+    //TODO maybe One Day as a Spring App
 	//public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
 
 
