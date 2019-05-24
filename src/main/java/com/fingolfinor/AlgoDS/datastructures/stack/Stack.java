@@ -1,26 +1,27 @@
-package com.fingolfinor.AlgoDS.datastructures;
+package com.fingolfinor.AlgoDS.datastructures.stack;
 
 
 /**
- * Stacks
+ * Stack
+ *
+ * Uses an Array DS to store items.
  *
  * @TODO move notes here.
- * @TODO Re-Implement to take Objects of any type -  and probably using a LinkedList
  *
  */
-public class Stack {
+public class Stack implements IStack {
     private int maxSize;
-    private long[] stackArray;      //Container storing items
+    private Object[] stackArray;      //Container storing items
     private int top;                //index of last item
                                     // Using pointers to maintain Top of Stack (just overwriting old and new array cells)
 
     public Stack(int size) {
         this.maxSize = size;
-        this.stackArray = new long[maxSize];
+        this.stackArray = new Object[maxSize];
         this.top = -1;              //So first item placed on stack will start at index 0
     }
 
-    public void push(long j) {
+    public void push(Object j) {
         if (isFull()) {
             System.out.println("Stack max size reached");
             return;
@@ -30,7 +31,7 @@ public class Stack {
         stackArray[top] = j;
     }
 
-    public long pop() {
+    public Object pop() {
         if (isEmpty()) {
             System.out.println("Stack is empty");
             return -1;                  // Not a great way of handling since user may place -1 on Array but hopefully Msg above
@@ -42,7 +43,7 @@ public class Stack {
         return stackArray[oldTop];
     }
 
-    public long peak() {
+    public Object peak() {
         if (isEmpty()) {
             return -1;
         }

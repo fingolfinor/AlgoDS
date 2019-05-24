@@ -6,6 +6,7 @@ import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.LinkedList;
 import com.fingolfinor.AlgoDS.algorithms.Searching;
 import com.fingolfinor.AlgoDS.algorithms.Sorting;
+import com.fingolfinor.AlgoDS.datastructures.stack.Stack;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;

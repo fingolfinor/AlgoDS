@@ -1,14 +1,14 @@
-package com.fingolfinor.AlgoDS.datastructures;
-
+package com.fingolfinor.AlgoDS.datastructures.stack;
 
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.LinkedList;
+import com.fingolfinor.AlgoDS.datastructures.linkedlist.Node;
 
-// TODO: Re-Implement to take Objects of any type -  and probably using a LinkedList
-public class StackLinkedList {
+
+public class StackLinkedList implements IStack{
     private int maxSize;
     private int size;
 
-    // Container storing items
+    // Use Start of LinkedList as Top to push/pop from top of Stack
     private LinkedList stack;
 
     public StackLinkedList() {
@@ -27,8 +27,9 @@ public class StackLinkedList {
             return;
         }
 
-        stack.insertLast(newItem);
         size++;
+
+        stack.insertFirst(newItem);
     }
 
     // TODO
@@ -42,16 +43,24 @@ public class StackLinkedList {
         }
 
         size--;
-        return stack.deleteFirst();
+
+        Node node = stack.deleteFirst();
+        Object item = node.data;
+        return item;
     }
 
-    // TODO
+
     public Object peak() {
         if (isEmpty()) {
             return -1;
         }
 
-        return new Object();
+        // Way around limitation of no LinkedList method to look at the first Node.
+        Node node = stack.deleteFirst();
+        Object item = node.data;
+        push(item);
+
+        return item;
     }
 
     public boolean isEmpty() {

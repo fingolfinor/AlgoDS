@@ -15,6 +15,11 @@ public class LinkedList {
     }
 
     public void insertLast(Object data) {
+        if (isEmpty()) {
+            insertFirst(data);
+            return;
+        }
+
         Node current = first;
         while(current.next != null) {
             current = current.next;
