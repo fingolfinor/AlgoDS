@@ -1,60 +1,12 @@
 # AlgoDS
+>>>
+>>> Next Up: quickly clean up LinkedLists  (then move to others so no forget)
+>>>
 
 Algorithms and Data Structures ongoing learning. Written in Java and run mainly through Unit Tests.
 (~Tip draw to understand/reason)
 
-Below is a summary of things - look in the related Class for more detailed info.
-
-
-### Run
-
-@TODO consider looking into how-to make into a Java Library for re-use.
-
 Run the JUnit Unit Tests using whatever IDE testing tool. (note Spring Boot comes with JUnit 4 by default)
-
-
-## Algorithms
-
-Algorithms are step-by-step instructions on how the computer should go about solving the problem.
-
-### Big-O Algorithm Analysis
-Analysis of algorithms is about How well does a program scale? Efficient if it scales well relative to input size.
-Below in decreasing efficiency of Growth Rates/Complexity (with Asymptotic Notation where n=input size):
- - constant O(1): one operation on N-input constant (e.g. array access by index)
- - linear O(n): Single-Loop iterates once for every N-input (scales linearly as the input size of input increases)
- - quadratic O(n^2): Nested-loop so N*N operations (quadratic=squared) input time (acceptable slow)
- - cubic O(n^3): 3-Nested loop (N*N*N operations)
- - exponential O(c^n), c > 1: N-nested loops(very inefficient)
- - logarithmic O(log(n)): 1-loop
-
-Equating:  (looking at worse case always)
-e.g. Complexity of: 37n^3 + 18n^2 + 190 = O(n^3)  //dominating term is n^3
-
-
-### Searching & Sorting
-
- Linear Search - O(n)
- - *unordered, list where every item is search
-
- Binary Search - O(log n) if a Balanced Tree, or if Unbalanced worst case could even be O(n)
- - *sorted, keep halfing until find target
-
- Selection Sort, O(n^2) worst case
- - find the smallest and swap in place, go to next and repeat to end of list
-
- Insertion Sort, O(n^2) worst case
- - "sort on insertion" in sorted area, like using 2 arrays but think of left sorted half as sorted insert array
-
- Merge Sort, O(n Log n) worst and best case,  divide and conquer
- 1) "splitting" data in halves until 1-size base-case,
- 2) "merge" each split *sorted array by merging (sort) two parts together, until complete
- - con requires copies of array, so more memory
-
- Quick Sort (aka Partition Sort), O(n Log n) avg case and O(n^2) worst case
- 1) Partitioning to get pivot index
- 2) less recursive left, greater recursive right,  shrinking range each iteration then sorted
- + less space since in memory array
-
 
 ## Data Structures
 
@@ -80,11 +32,10 @@ Array:
    Size measurement, 1-N think how big, at least a size of 1  (last index + 1)
 
 Linked List:
-- A Linked List is a dynamically allocated memory list where a Controller manages
-  a list of nodes that each have a Next pointer. The Controller also keeps track
-  of the first and last element in the list, as well get, set, and delete. LinkedLists are fast at adding and removing elements but N-times slow as the
-  list size grows for retrieving elements.
-- made up of Nodes that are "self referential/recursive class"es having a next point to another Node
+- (old) A Linked List is a dynamically allocated memory list where a Controller manages a list of nodes that each have
+   a Next pointer. The Controller also keeps track of the first and last element in the list, as well get, set, and
+   delete. LinkedLists are fast at adding & removing elements but N-times slow as the listsize grows for retrievng elems
+- made up of Nodes that are "self referential/recursive class"es having a Next Node point to another Node
 - pros: non fixed size, so unlike an array don't have recreate for any *removal/insert or *re-sizing
 
 Doubly Linked List:
@@ -131,4 +82,49 @@ Hash
 
 Graph
 - Group of Nodes with relationships that form paths, directional and undirectional graphs
+
+
+## Algorithms
+
+Algorithms are step-by-step instructions on how the computer should go about solving the problem.
+
+### Big-O Algorithm Analysis
+Analysis of algorithms is about How well does a program scale? Efficient if it scales well relative to input size.
+Below in decreasing efficiency of Growth Rates/Complexity (with Asymptotic Notation where n=input size):
+ - constant O(1): one operation on N-input constant (e.g. array access by index)
+ - linear O(n): Single-Loop iterates once for every N-input (scales linearly as the input size of input increases)
+ - quadratic O(n^2): Nested-loop so N*N operations (quadratic=squared) input time (acceptable slow)
+ - cubic O(n^3): 3-Nested loop (N*N*N operations)
+ - exponential O(c^n), c > 1: N-nested loops(very inefficient)
+ - logarithmic O(log(n)): 1-loop
+
+Equating:  (looking at worse case always)
+e.g. Complexity of: 37n^3 + 18n^2 + 190 = O(n^3)  //dominating term is n^3
+
+
+### Searching & Sorting
+
+ Linear Search - O(n)
+ - *unordered, list where every item is search
+
+ Binary Search - O(log n) if a Balanced Tree, or if Unbalanced worst case could even be O(n)
+ - *sorted, keep halfing until find target
+
+ Selection Sort, O(n^2) worst case
+ - find the smallest and swap in place, go to next and repeat to end of list
+
+ Insertion Sort, O(n^2) worst case
+ - "sort on insertion" in sorted area, like using 2 arrays but think of left sorted half as sorted insert array
+
+ Merge Sort, O(n Log n) worst and best case,  divide and conquer
+ 1) "splitting" data in halves until 1-size base-case,
+ 2) "merge" each split *sorted array by merging (sort) two parts together, until complete
+ - con requires copies of array, so more memory
+
+ Quick Sort (aka Partition Sort), O(n Log n) avg case and O(n^2) worst case
+ 1) Partitioning to get pivot index
+ 2) less recursive left, greater recursive right,  shrinking range each iteration then sorted
+ + less space since in memory array
+
+
 
