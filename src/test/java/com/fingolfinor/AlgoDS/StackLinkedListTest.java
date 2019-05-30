@@ -1,6 +1,6 @@
 package com.fingolfinor.AlgoDS;
 
-import com.fingolfinor.AlgoDS.datastructures.stack.Stack;
+import com.fingolfinor.AlgoDS.datastructures.stack.StackArray;
 import com.fingolfinor.AlgoDS.datastructures.stack.StackLinkedList;
 import org.junit.Test;
 
@@ -25,24 +25,24 @@ public class StackLinkedListTest extends StackTestBase<StackLinkedList> {
     }
 
     /**
-     * Reverses a word to test Pushing and Popping from the Stack - basically just Playing with stacks.
+     * Reverses a word to test Pushing and Popping from the StackArray - basically just Playing with stacks.
      *
      * @param word
      * @return
      */
     public static String reverseWord(String word) {
         int stackSize = word.length();
-        Stack stack = new Stack(stackSize);
+        StackArray stackArray = new StackArray(stackSize);
         String reversedWord = "";
 
-        // Push vals on stack
+        // Push vals on stackArray
         for (int i = 0; i < stackSize; i++) {
-            stack.push(i);
+            stackArray.push(i);
         }
 
-        // Reverse vals by popping off stack onto string
-        while (!stack.isEmpty()) {
-            int charIndex = Integer.parseInt(String.valueOf(stack.pop()));
+        // Reverse vals by popping off stackArray onto string
+        while (!stackArray.isEmpty()) {
+            int charIndex = Integer.parseInt(String.valueOf(stackArray.pop()));
             reversedWord = reversedWord + word.charAt(charIndex);
         }
 

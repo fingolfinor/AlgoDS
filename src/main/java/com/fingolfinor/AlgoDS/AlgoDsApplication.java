@@ -3,10 +3,9 @@ package com.fingolfinor.AlgoDS;
 import com.fingolfinor.AlgoDS.datastructures.*;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
-import com.fingolfinor.AlgoDS.datastructures.linkedlist.LinkedList;
 import com.fingolfinor.AlgoDS.algorithms.Searching;
 import com.fingolfinor.AlgoDS.algorithms.Sorting;
-import com.fingolfinor.AlgoDS.datastructures.stack.Stack;
+import com.fingolfinor.AlgoDS.datastructures.queue.QueueArray;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
@@ -20,57 +19,27 @@ public class AlgoDsApplication {
 
     /**
      *
-     *
-     *
-     *
-     *
-     *
      * Move below to Unit TEsts then consider removing this app file to avoid confusion.
      *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
      */
-
 
     //TODO maybe One Day as a Spring App
 	//public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
 
 
 	public static void main(String args[]) {
-//        CounterADT counterADT = new CounterADT("MyCounter");
-//        System.out.println(counterADT.increment().increment().increment());
-//
-//        // Stack: playing
-//        Stack stack = new Stack(2);
-//        stack.push(1); stack.push(2); stack.push(3);
-//        while (!stack.isEmpty()) { System.out.println(stack.pop()); }
-//        System.out.println("Reverse word Hello: " + reverseWord("Hello"));
 
-		// Queue: playing
-		Queue myQueue = new Queue(3);
+		// QueueArray: playing
+		QueueArray myQueue = new QueueArray(3);
 		myQueue.enQueue(1);
 		myQueue.enQueue(2);
 		myQueue.enQueue(3);
 		myQueue.view();
 
-		// LinkedList: playing
-		LinkedList linkedList = new LinkedList();
-		linkedList.insertFirst(1);
-		linkedList.insertFirst(3);
-		linkedList.insertFirst(7);
-		linkedList.displayList();
-
-		// Circular LinkedList as Queue
+		// Circular LinkedList as QueueArray
 		// - use inserLast() to queue up to the end of the chain
 		// - use deleteFirst() to deQueue the chain
-		System.out.println("\n\nCircular LinkedList as Queue");
+		System.out.println("\n\nCircular LinkedList as QueueArray");
 		CircularLinkedList queueLinkedList = new CircularLinkedList();
 		queueLinkedList.insertLast(1);
 		queueLinkedList.insertLast(3);
@@ -78,15 +47,15 @@ public class AlgoDsApplication {
 		System.out.println("DeQueued: {" + queueLinkedList.deleteFirst().data + "}");
 		queueLinkedList.displayList();
 
-		// LinkedList as Stack
+		// LinkedList as StackArray
 		// - use insertFirst() to push on the first of the chain
 		// - use deleteFirst() to pop off from the first part of the chain
-		System.out.println("\nCircular LinkedList as Stack");
+		System.out.println("\nCircular LinkedList as StackArray");
 		CircularLinkedList stackLinkedList = new CircularLinkedList();
 		stackLinkedList.insertFirst(1);
 		stackLinkedList.insertFirst(3);
 		stackLinkedList.insertFirst(7);
-		System.out.println("Pop off Stack: {" + stackLinkedList.deleteFirst().data + "}");
+		System.out.println("Pop off StackArray: {" + stackLinkedList.deleteFirst().data + "}");
 		stackLinkedList.displayList();
 
 		// DoublyLinkedList: playing
@@ -198,30 +167,4 @@ public class AlgoDsApplication {
 		myBetterGraph.print();
 	}
 
-
-
-
-	///////////////////////////////////
-	// Playing with stacks
-	///////////////////////////////////
-
-	// Note: would probably want to update custom Stack class to accept Objects or at least Chars for this case
-	public static String reverseWord(String word) {
-		int stackSize = word.length();
-		Stack stack = new Stack(stackSize);
-		String reversedWord = "";
-
-		// Push vals on stack
-		for (int i = 0; i < stackSize; i++) {
-			stack.push(i);
-		}
-
-		// Reverse vals by popping off stack onto string
-		while (!stack.isEmpty()) {
-			int charIndex = (int) stack.pop();
-			reversedWord = reversedWord + word.charAt(charIndex);
-		}
-
-		return reversedWord;
-	}
 }

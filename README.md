@@ -1,6 +1,6 @@
 # AlgoDS
 >>>
->>> Next Up: quickly clean up LinkedLists  (then move to others so no forget)
+>>> Next Up: Implement QueueArray (with interface) and QueueLinkedList
 >>>
 
 Algorithms and Data Structures ongoing learning. Written in Java and run mainly through Unit Tests.

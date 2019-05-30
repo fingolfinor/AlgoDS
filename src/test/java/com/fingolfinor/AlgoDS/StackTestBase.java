@@ -1,7 +1,6 @@
 package com.fingolfinor.AlgoDS;
 
 import com.fingolfinor.AlgoDS.datastructures.stack.IStack;
-import com.fingolfinor.AlgoDS.datastructures.stack.Stack;
 import org.junit.Before;
 import org.junit.Test;
 

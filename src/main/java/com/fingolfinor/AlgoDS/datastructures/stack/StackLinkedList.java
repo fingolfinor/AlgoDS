@@ -8,7 +8,7 @@ public class StackLinkedList implements IStack{
     private int maxSize;
     private int size;
 
-    // Use Start of LinkedList as Top to push/pop from top of Stack
+    // Use Start of LinkedList as Top to push/pop from top of StackArray
     private LinkedList stack;
 
     public StackLinkedList() {
@@ -23,7 +23,7 @@ public class StackLinkedList implements IStack{
 
     public void push(Object newItem) {
         if (isFull()) {
-            System.out.println("Stack max size reached");
+            System.out.println("StackArray max size reached");
             return;
         }
 
@@ -32,10 +32,9 @@ public class StackLinkedList implements IStack{
         stack.insertFirst(newItem);
     }
 
-    // TODO
     public Object pop() {
         if (isEmpty()) {
-            System.out.println("Stack is empty");
+            System.out.println("StackArray is empty");
 
             // Not a great way of handling since user may place -1 on Array but hopefully Msg above
             // WHY exceptions are better.
