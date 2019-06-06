@@ -5,7 +5,7 @@ import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
 import com.fingolfinor.AlgoDS.algorithms.Searching;
 import com.fingolfinor.AlgoDS.algorithms.Sorting;
-import com.fingolfinor.AlgoDS.datastructures.queue.QueueArray;
+import com.fingolfinor.AlgoDS.datastructures.queue.QueueCircularArray;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
@@ -29,17 +29,17 @@ public class AlgoDsApplication {
 
 	public static void main(String args[]) {
 
-		// QueueArray: playing
-		QueueArray myQueue = new QueueArray(3);
+		// QueueCircularArray: playing
+		QueueCircularArray myQueue = new QueueCircularArray(3);
 		myQueue.enQueue(1);
 		myQueue.enQueue(2);
 		myQueue.enQueue(3);
 		myQueue.view();
 
-		// Circular LinkedList as QueueArray
+		// Circular LinkedList as QueueCircularArray
 		// - use inserLast() to queue up to the end of the chain
 		// - use deleteFirst() to deQueue the chain
-		System.out.println("\n\nCircular LinkedList as QueueArray");
+		System.out.println("\n\nCircular LinkedList as QueueCircularArray");
 		CircularLinkedList queueLinkedList = new CircularLinkedList();
 		queueLinkedList.insertLast(1);
 		queueLinkedList.insertLast(3);

@@ -50,10 +50,8 @@ Stack:
 - uses: reverse a word, equation string parsing (managing parenthesis)
 
 Queue:
-- A linear data structure that has a FIFO order of enqueue and dequeue such as a
- 	  retail store lineup. Used often for services like a transport queue or buffer.
-- FIFO, two operations - fairly address items that come first (building on array)
-- Circular queue - when reach end, overwiting beginning of Queue (not so fair :)
+- First In First Out (FIFO) linear DS that retains order & de-queues first added in list and en-queues last pos in list
+- Circular queue - when reach end, overwiting beginning of Queue
 - uses: doctor queue, printer queue..
 
 Abstract Data Type (ADT)

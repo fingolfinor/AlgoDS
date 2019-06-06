@@ -1,6 +1,12 @@
 package com.fingolfinor.AlgoDS.datastructures.queue;
 
-public class QueueArray {
+/**
+ *
+ */
+
+
+
+public class QueueCircularArray {
 
     private int maxSize;
     private long[] queueArray;
@@ -9,7 +15,7 @@ public class QueueArray {
     private int nItems;             //counter to maintain number of items in queue
                                     //Note: could also use queueArray.length()
 
-    public QueueArray(int maxSize) {
+    public QueueCircularArray(int maxSize) {
         this.maxSize = maxSize;
         this.queueArray = new long[maxSize];
         this.front = 0;
@@ -19,7 +25,7 @@ public class QueueArray {
 
     // CIRCULAR QUEUE: Aha just overwrite beginning when get to end
     public void enQueue(long newItem) {
-                                    // Strange: (IS GOOD, is a Circular QueueArray)
+                                    // Strange: (IS GOOD, is a Circular QueueCircularArray)
                                     // to loop like this No? (loose members in line :)
         if (rear == maxSize-1) {    // So  bring rear back to the beginning, then things will just overwrite (hmm??)
                                     // but overwriting the first item may not be what want..
