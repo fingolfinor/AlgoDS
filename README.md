@@ -1,6 +1,6 @@
 # AlgoDS
 >>>
->>> Next Up: Implement QueueArray (with interface) and QueueLinkedList
+>>> Next Up: test QueuCircularArray (then QueueCircularLinkedList?)
 >>>
 
 Algorithms and Data Structures ongoing learning. Written in Java and run mainly through Unit Tests.
