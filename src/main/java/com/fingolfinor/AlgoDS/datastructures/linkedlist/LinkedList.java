@@ -1,17 +1,36 @@
 package com.fingolfinor.AlgoDS.datastructures.linkedlist;
 
 
+/**
+ * A FIFO DS that chains Nodes together through a Container that manages the List through the Head (first Node). Each
+ * Node has Data and a Next value that points to the next Node in the chain. Often suited for Queue related problems
+ * because the List is always accessed in order, from first to last (FIFO).
+ *
+ * + Dynamic sizing and fast O(n) inserting/deleting Nodes
+ * - Slow access reading when N gets big since scan from Head to Tail
+ * - Memory vs array since next pointer takes an additional 4-Bytes
+ *
+ * TODO:
+ * * Implement Interface from these instructions
+ *      https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html
+ */
+
 public class LinkedList {
 
-    private Node first;     // think Head of train, engine car
+    // Entry point for access to chained Nodes
+    // Last Node (implicit Tail) is identified by it pointing to Null
+    private Node head;
 
     public LinkedList(){
     }
 
     public void insertFirst(Object data) {
         Node newNode = new Node(data);
-        newNode.next = first;           // Important
-        first = newNode;
+
+        // Update first to
+        newNode.next = head;
+
+        head = newNode;
     }
 
     public void insertLast(Object data) {
@@ -20,7 +39,7 @@ public class LinkedList {
             return;
         }
 
-        Node current = first;
+        Node current = head;
         while(current.next != null) {
             current = current.next;
         }
@@ -29,13 +48,13 @@ public class LinkedList {
     }
 
     public Node deleteFirst() {
-        Node deletedNode = first;
-        first = first.next;
+        Node deletedNode = head;
+        head = head.next;
         return deletedNode;
     }
 
     public void displayList() {
-        Node current = first;
+        Node current = head;
         System.out.println("First to last:");
         while(current != null) {
             current.displayData();
@@ -45,7 +64,7 @@ public class LinkedList {
     }
 
     public boolean isEmpty() {
-        return (first == null);
+        return (head == null);
     }
 
 }
