@@ -6,10 +6,15 @@ package com.fingolfinor.AlgoDS.datastructures.linkedlist;
  * Node has Data and a Next value that points to the next Node in the chain. Often suited for Queue related problems
  * because the List is always accessed in order, from first to last (FIFO).
  *
+ * Pros-Cons:
  * + Dynamic sizing and fast O(n) inserting/deleting Nodes
  * - Slow access reading when N gets big since scan from Head to Tail
  * - Memory vs array since next pointer takes an additional 4-Bytes
  *
+ * Q & A:
+ * Q. Is there a standard interface? e.g. no Insert After key?
+ * A. ...
+ * 
  * TODO:
  * * Implement Interface from these instructions
  *      https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html

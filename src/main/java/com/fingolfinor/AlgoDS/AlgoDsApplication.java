@@ -3,8 +3,8 @@ package com.fingolfinor.AlgoDS;
 import com.fingolfinor.AlgoDS.datastructures.*;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
-import com.fingolfinor.AlgoDS.algorithms.Searching;
-import com.fingolfinor.AlgoDS.algorithms.Sorting;
+import com.fingolfinor.AlgoDS.algorithms.searching.BinarySearch;
+import com.fingolfinor.AlgoDS.algorithms.sorting.QuickSort;
 import com.fingolfinor.AlgoDS.datastructures.queue.QueueCircularArray;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -76,31 +76,24 @@ public class AlgoDsApplication {
 		// LinearSearch: O(n)
 		// - list does NOT need to be sorted
 		List<Integer> listOfNumbers = Stream.of(1,2,3).collect(Collectors.toList()); // Streams, so hot right now
-		System.out.println("\nLinear Search result: " + Searching.linearSearch(listOfNumbers, 2));
-
-		// BinarySearch:
-		// - list MUST be sorted
-		int sortedListA[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-		System.out.println("\nBinary Search (while): found at Index " + Searching.binarySearchWhile(7, sortedListA));
-		System.out.println("Binary Search (recursive): fount at Index " + Searching.binarySearchRecursive(sortedListA, 7));
-
+//		System.out.println("\nLinear Search result: " + BinarySearch.search(listOfNumbers, 2));
 
 		int unsortedListA[] = {9,8,3,13,87,12,99};                  //Note arrays passed by reference, so clone before alter
-
-		// SelectionSort:
-		System.out.println("\nSelections sort: " + Arrays.toString( Sorting.selectionSort(unsortedListA) ));
-
-		// Insertion Sort:
-		System.out.println("Insertion sort: " + Arrays.toString( Sorting.insertionSort(unsortedListA)));
+//
+//		// SelectionSort:
+//		System.out.println("\nSelections sort: " + Arrays.toString( QuickSort.sort(unsortedListA); ));
+//
+//		// Insertion Sort:
+//		System.out.println("Insertion sort: " + Arrays.toString( QuickSort.sort(unsortedListA)));
 
 		// Merge sort: (NOT WORKING)
 		int unsortedListMergeSort[] = {9,8,3,13,87,12,99};
-		Sorting.mergeSort(unsortedListMergeSort);
+		QuickSort.sort(unsortedListMergeSort);
 		System.out.println("Merge sort: " + Arrays.toString(unsortedListMergeSort));
 
 		// Quick-Partition Sort
 		int unsortedListQuickSort[] = {12,81,74,43,1098,0,8,92,17,754,912,0,6,4};
-		Sorting.quickSort(unsortedListQuickSort);
+		QuickSort.sort(unsortedListQuickSort);
 		System.out.println("Quick sort: " + Arrays.toString(unsortedListQuickSort));
 
 		// BinarySearchTree
