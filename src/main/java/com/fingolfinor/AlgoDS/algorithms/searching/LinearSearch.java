@@ -8,7 +8,7 @@ public class LinearSearch {
         int answer = -1;
         for (Object item: list) {
             if ((int) item == searchingFor) {
-                answer = searchingFor;                                          // Optimize: return here
+                answer = searchingFor;  // Optimize: return here
             }
         }
         return answer;

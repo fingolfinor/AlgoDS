@@ -49,34 +49,34 @@ public class BinarySearch {
         }
     }
 
-
-    // COPIED re-do
-    public static int bsSearchLinear(int list[], int target) {
-        int startIndex = 0;
-        int endIndex = list.length - 1;
+    public static int bsSearchLinear(int list[], int key) {
+        int leftIndex = 0;
+        int rightIndex = list.length - 1;   // Original Error: list.length - 1 (remember for any Index use, always sub-1 from a Length)
         int midIndex;
 
-        while (startIndex <= endIndex) {
-            // Divide and conquer
-            midIndex = (int) Math.floor((startIndex + endIndex) / 2);  //Forgot parentheses around addition first.. :)
-            //Just always use parentheses PRO TIP
+        // Otherwise reached end of list and would  head into out of bounds
+        while (leftIndex <= rightIndex) {    // Original Error: leftIndex <= rightIndex
+            // Get the mid point
+            midIndex = (leftIndex + rightIndex) / 2;    // Original pro tip: Just always use parentheses
 
-            // Found it
-            if (list[midIndex] == target) {
+            // Fount it
+            if (list[midIndex] == key) {
                 return midIndex;
             }
 
-            // Left side (target is smaller than val)
-            if (target < list[midIndex]) {
-                endIndex = midIndex - 1;
+            // Go left
+            if (key < list[midIndex]) {
+                //leftIndex = 0;
+                rightIndex = midIndex - 1;
             }
-            // Right side (target is bigger than val)
+            // Go right: key > list[midIndex]
             else {
-                startIndex = midIndex + 1;
+                leftIndex = midIndex + 1;
             }
         }
 
         return -1;
     }
+
 
 }
