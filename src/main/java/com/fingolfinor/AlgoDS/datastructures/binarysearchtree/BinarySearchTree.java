@@ -1,11 +1,89 @@
-package com.fingolfinor.AlgoDS.datastructures;
+package com.fingolfinor.AlgoDS.datastructures.binarysearchtree;
 
 /**
  * BINARY SEARCH TREE (BST)
+ * Sorted DS that allows fast lookup, additions and removals.
+ *
+ * Big-O: average O(log n), worst O(n)
+ *
+ * Note Big-O is slower than a HashTable but has the advange of being sorted.
+ *
+ *  ~~ If stuck see Wikipedia to start :)
  */
 public class BinarySearchTree {
 
+    // TODO Node max()
+
+    // TODO Node getByKey(int key)
+
     private Node root;
+
+    // Mainly for unit testing
+    private int nodeCount = 0;
+
+    public int getNodeCount() {
+        return nodeCount;
+    }
+
+    public void insert(int key, String value) {
+        Node nodeToInsert = new Node(key, value);
+        nodeCount++;
+
+        // check for empty tree
+        if (root == null) {
+            root = nodeToInsert;
+            return;
+        }
+
+        // search until empty spot for insertion
+        Node current = root;
+        Node parent = null;
+        while (true) {
+            parent = current;
+
+            if (key < current.key) {
+                // go left side
+                current = current.leftChild;
+
+                // is it empty, insert here
+                if (current == null) {
+                    parent.leftChild = nodeToInsert;
+                    break;
+                }
+            }
+            else {
+                // go right
+                current = current.rightChild;
+
+                // is it empty, insert here
+                if (current == null) {
+                    parent.rightChild = nodeToInsert;
+                    break;
+                }
+            }
+        }
+    }
+
+    // Find the Node with the smallest Key
+    // The algorithm traverses the left side of tree from leftChild to leftChild until the bottom of the tree is reached
+    // which is the smallest index in the BST.
+    public Node min() {
+        Node current = root;
+
+        // go left until child null, this is the min based on DS
+        while (current != null) {
+            if (current.leftChild == null) {
+                // Found min node, break out of loop
+                break;
+            }
+
+            // Otherwise keep going down the left side of the tree
+            current = current.leftChild;
+        }
+
+        // End of Left side of tree, this is the min key.
+        return current;
+    }
 
     //TODO
     public void printTree() {
@@ -24,43 +102,40 @@ public class BinarySearchTree {
     /**
      * Inserts a newly created node in the related sorted position in the BST based on the key index.
      *
-     * Note: **if Keys Match, then insert as Left Child. (Not sure if this makes sense though to have duplicate keys?!)
-     *
-     * @param key index position in BST
-     * @param value data stored in Node
+     * Note: if Keys Match, then insert as Left Child. (Not sure if this makes sense though to have duplicate keys?!)
      */
-    public void insert(int key, String value) {
-        Node newNode = new Node(key, value);
-
-        // Empty tree, set new node as root and exit.
-        if (root == null) {
-            root = newNode;
-            return;
-        }
-
-        // Traverse the levels of the tree until a related Leaf node pointing to null is found, insert here.
-        Node current = root;    // Traversing node
-        Node parent;            // Parent of Current node
-        while (true) {
-            parent = current;
-
-            if (key < current.key) {    // Go left
-                current = current.leftChild;
-
-                if (current == null) {  // Parent is the Leaf node, found spot insert and leave
-                    parent.leftChild =  newNode;
-                    return;
-                }
-            } else {    // go right
-                current = current.rightChild;
-
-                if (current == null) {
-                    parent.rightChild = newNode;
-                    return;
-                }
-            }
-        }
-    }
+//    public void insert(int key, String value) {
+//        Node newNode = new Node(key, value);
+//
+//        // Empty tree, set new node as root and exit.
+//        if (root == null) {
+//            root = newNode;
+//            return;
+//        }
+//
+//        // Traverse the levels of the tree until a related Leaf node pointing to null is found, insert here.
+//        Node current = root;    // Traversing node
+//        Node parent;            // Parent of Current node
+//        while (true) {
+//            parent = current;
+//
+//            if (key < current.key) {    // Go left
+//                current = current.leftChild;
+//
+//                if (current == null) {  // Parent is the Leaf node, found spot insert and leave
+//                    parent.leftChild =  newNode;
+//                    return;
+//                }
+//            } else {    // go right
+//                current = current.rightChild;
+//
+//                if (current == null) {
+//                    parent.rightChild = newNode;
+//                    return;
+//                }
+//            }
+//        }
+//    }
 
     public boolean remove(int key) {
         Node currentNode = root;
@@ -164,19 +239,7 @@ public class BinarySearchTree {
         return successor;
     }
 
-    public Node findMin() {
-        Node current = root;
-        Node last = null;
 
-        // Traverses Left side of tree until bottom reached which is the smallest index in the BST.
-        while (current != null) {
-            last = current;
-            current = current.leftChild;
-        }
-
-        // End of Left side of tree, this is the min key.
-        return last;
-    }
 
     public Node findMax() {
         Node current = root;
@@ -190,26 +253,5 @@ public class BinarySearchTree {
 
         // End of Right side of tree, this is the max key.
         return last;
-    }
-
-    //////////////////////////////////////////////////
-    //
-    //////////////////////////////////////////////////
-    public class Node {
-        int key;
-        String value;
-        Node leftChild;
-        Node rightChild;
-
-        public Node(int key, String value) {
-            super();
-            this.key = key;
-            this.value = value;
-        }
-
-        @Override
-        public String toString() {
-            return "Node with key=" + key + ", value='" + value;
-        }
     }
 }

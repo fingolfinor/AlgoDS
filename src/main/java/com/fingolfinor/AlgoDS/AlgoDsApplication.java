@@ -1,9 +1,9 @@
 package com.fingolfinor.AlgoDS;
 
 import com.fingolfinor.AlgoDS.datastructures.*;
+import com.fingolfinor.AlgoDS.datastructures.binarysearchtree.BinarySearchTree;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
-import com.fingolfinor.AlgoDS.algorithms.searching.BinarySearch;
 import com.fingolfinor.AlgoDS.algorithms.sorting.QuickSort;
 import com.fingolfinor.AlgoDS.datastructures.queue.QueueCircularArray;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,19 +15,61 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class AlgoDsApplication {
+    //TODO maybe One Day as a Spring App - public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
 
 
-    /**
-     *
-     * Move below to Unit TEsts then consider removing this app file to avoid confusion.
-     *
-     */
+	public static void rememberingJava() {
+		/**
+		 * Scope in Java
+		 * is Block `{...}` based  and not hoisted. From inner to outer context access (as 1-scope) but not vice versa.
+		 */
+		boolean scopeA = true;
+		boolean scopeD = true;
+		if (scopeA) {
+			boolean scopeB = true;
+			//boolean scopeD = false;	//Error defined in same scope
+			System.out.println("ScopeA" + scopeA);
+		}
+		//System.out.println("ScopeB" + scopeB);	// Error
 
-    //TODO maybe One Day as a Spring App
-	//public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
+		/**
+		 * Array Initialization
+		 */
+		String arr1D[] = { "a", "b" };	// Use braces to initialize vals
+		int arr2D[][] = { {1,2}, {5,6} };
+		float arrF[] = new float[1];	// Create an array of size 1
+		//System.out.println("Out of bounds: " + arrF[2]);	//Out of bounds error
 
+	}
 
 	public static void main(String args[]) {
+		//rememberingJava();
+
+
+//		// TODO unit tests
+//		// BinarySearchTree
+//		BinarySearchTree bst = new BinarySearchTree();
+//		bst.insert(10, "Ten");
+//		bst.insert(20, "Twenty");
+//		bst.insert(15, "Fifteen");
+//		bst.insert(3, "Three");
+//		bst.insert(33, "Thirty Three");
+//		bst.insert(12, "Twelve");
+//		System.out.println("BST min: " + bst.findMin());
+//		System.out.println("BST max: " + bst.findMax());
+//		System.out.println("Removed node: " + bst.remove(10));
+//		System.out.println("BST min: " + bst.findMin());
+//		System.out.println("BST Tree: ");
+//		bst.printTree();
+
+
+
+
+		/**
+		 *
+		 * Move below to Unit TEsts then consider removing this app file to avoid confusion.
+		 *
+		 */
 
 		// QueueCircularArray: playing
 		QueueCircularArray myQueue = new QueueCircularArray(3);
@@ -95,21 +137,6 @@ public class AlgoDsApplication {
 		int unsortedListQuickSort[] = {12,81,74,43,1098,0,8,92,17,754,912,0,6,4};
 		QuickSort.sort(unsortedListQuickSort);
 		System.out.println("Quick sort: " + Arrays.toString(unsortedListQuickSort));
-
-		// BinarySearchTree
-		BinarySearchTree bst = new BinarySearchTree();
-		bst.insert(10, "Ten");
-		bst.insert(20, "Twenty");
-		bst.insert(15, "Fifteen");
-		bst.insert(3, "Three");
-		bst.insert(33, "Thirty Three");
-		bst.insert(12, "Twelve");
-		System.out.println("BST min: " + bst.findMin());
-		System.out.println("BST max: " + bst.findMax());
-		System.out.println("Removed node: " + bst.remove(10));
-		System.out.println("BST min: " + bst.findMin());
-		System.out.println("BST Tree: ");
-		bst.printTree();
 
 		// Heap. TODO get working
 //        Heap myHeap = new Heap(10);
