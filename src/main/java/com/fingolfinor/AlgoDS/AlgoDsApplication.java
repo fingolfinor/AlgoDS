@@ -1,7 +1,6 @@
 package com.fingolfinor.AlgoDS;
 
 import com.fingolfinor.AlgoDS.datastructures.*;
-import com.fingolfinor.AlgoDS.datastructures.binarysearchtree.BinarySearchTree;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.CircularLinkedList;
 import com.fingolfinor.AlgoDS.datastructures.linkedlist.DoublyLinkedList;
 import com.fingolfinor.AlgoDS.algorithms.sorting.QuickSort;
@@ -15,54 +14,26 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class AlgoDsApplication {
-    //TODO maybe One Day as a Spring App - public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
-
-
-	public static void rememberingJava() {
-		/**
-		 * Scope in Java
-		 * is Block `{...}` based  and not hoisted. From inner to outer context access (as 1-scope) but not vice versa.
-		 */
-		boolean scopeA = true;
-		boolean scopeD = true;
-		if (scopeA) {
-			boolean scopeB = true;
-			//boolean scopeD = false;	//Error defined in same scope
-			System.out.println("ScopeA" + scopeA);
-		}
-		//System.out.println("ScopeB" + scopeB);	// Error
-
-		/**
-		 * Array Initialization
-		 */
-		String arr1D[] = { "a", "b" };	// Use braces to initialize vals
-		int arr2D[][] = { {1,2}, {5,6} };
-		float arrF[] = new float[1];	// Create an array of size 1
-		//System.out.println("Out of bounds: " + arrF[2]);	//Out of bounds error
-
-	}
 
 	public static void main(String args[]) {
-		//rememberingJava();
 
-
-//		// TODO unit tests
-//		// BinarySearchTree
-//		BinarySearchTree bst = new BinarySearchTree();
-//		bst.insert(10, "Ten");
-//		bst.insert(20, "Twenty");
-//		bst.insert(15, "Fifteen");
-//		bst.insert(3, "Three");
-//		bst.insert(33, "Thirty Three");
-//		bst.insert(12, "Twelve");
-//		System.out.println("BST min: " + bst.findMin());
-//		System.out.println("BST max: " + bst.findMax());
-//		System.out.println("Removed node: " + bst.remove(10));
-//		System.out.println("BST min: " + bst.findMin());
-//		System.out.println("BST Tree: ");
-//		bst.printTree();
-
-
+		// HashTable
+		HashTable hashTable = new HashTable(10);    // Downer that need fixed size upfront.
+		hashTable.insert("Apple");
+		hashTable.insert("Africa");
+		hashTable.insert("Belgium");
+		hashTable.insert("Canada");
+		hashTable.insert("England");
+		hashTable.insert("France");
+		hashTable.insert("Germany");
+		hashTable.insert("Hungary");
+		hashTable.insert("Ireland");
+		hashTable.insert("Jamaica");
+		hashTable.insert("AWordTeste");
+		//TODO HANDLE: hashTable.insert("WE ARE FULL"); <--------- CAUSES AN INFINITE LOOP
+		//System.out.println("Find Africa: " + hashTable.find("Africa"));
+		//System.out.println("Should Not Find Australia: " + hashTable.find("Australia"));
+		//hashTable.displayTable();
 
 
 		/**
@@ -150,24 +121,6 @@ public class AlgoDsApplication {
 //        myHeap.insert(7);
 		// TODO print HEAP
 
-		// HashTable
-		HashTable hashTable = new HashTable(10);    // Downer that need fixed size upfront.
-		hashTable.insert("Apple");
-		hashTable.insert("Africa");
-		hashTable.insert("Belgium");
-		hashTable.insert("Canada");
-		hashTable.insert("England");
-		hashTable.insert("France");
-		hashTable.insert("Germany");
-		hashTable.insert("Hungary");
-		hashTable.insert("Ireland");
-		hashTable.insert("Jamaica");
-		hashTable.insert("AWordTeste");
-		//TODO HANDLE: hashTable.insert("WE ARE FULL"); <--------- CAUSES AN INFINITE LOOP
-		//System.out.println("Find Africa: " + hashTable.find("Africa"));
-		//System.out.println("Should Not Find Australia: " + hashTable.find("Australia"));
-		//hashTable.displayTable();
-
 		// Graph
 		GraphDirectionalArray myGraph = new GraphDirectionalArray(10);
 		myGraph.addEdge(0, 1); myGraph.addEdge(0, 2); myGraph.addEdge(0, 3);
@@ -185,6 +138,33 @@ public class AlgoDsApplication {
 		myBetterGraph.addVertex("Elm");
 		myBetterGraph.addEdge("State", "Elm");
 		myBetterGraph.print();
+
+		//rememberingJava();
 	}
 
+	public static void rememberingJava() {
+		/**
+		 * Scope in Java
+		 * is Block `{...}` based  and not hoisted. From inner to outer context access (as 1-scope) but not vice versa.
+		 */
+		boolean scopeA = true;
+		boolean scopeD = true;
+		if (scopeA) {
+			boolean scopeB = true;
+			//boolean scopeD = false;	//Error defined in same scope
+			System.out.println("ScopeA" + scopeA);
+		}
+		//System.out.println("ScopeB" + scopeB);	// Error
+
+		/**
+		 * Array Initialization
+		 */
+		String arr1D[] = { "a", "b" };	// Use braces to initialize vals
+		int arr2D[][] = { {1,2}, {5,6} };
+		float arrF[] = new float[1];	// Create an array of size 1
+		//System.out.println("Out of bounds: " + arrF[2]);	//Out of bounds error
+
+	}
+
+	//TODO maybe One Day as a Spring App - public static void main(String[] args) { SpringApplication.run(AlgoDsApplication.class, args); }
 }

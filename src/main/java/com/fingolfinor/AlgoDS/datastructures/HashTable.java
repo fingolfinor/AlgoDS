@@ -1,5 +1,9 @@
 package com.fingolfinor.AlgoDS.datastructures;
 
+
+//HashTable
+//insert, retrieve, remove, notfound
+
 /**
  * Big-O Insert, Retrieve, (often delete) - O(1) constant time!
  * Simple and Efficient, a beautiful algorithm!!

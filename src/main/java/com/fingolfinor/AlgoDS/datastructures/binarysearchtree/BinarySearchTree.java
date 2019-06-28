@@ -1,5 +1,8 @@
 package com.fingolfinor.AlgoDS.datastructures.binarysearchtree;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
 /**
  * BINARY SEARCH TREE (BST)
  * Sorted DS that allows fast lookup, additions and removals.
@@ -11,10 +14,6 @@ package com.fingolfinor.AlgoDS.datastructures.binarysearchtree;
  *  ~~ If stuck see Wikipedia to start :)
  */
 public class BinarySearchTree {
-
-    // TODO Node max()
-
-    // TODO Node getByKey(int key)
 
     private Node root;
 
@@ -64,10 +63,67 @@ public class BinarySearchTree {
         }
     }
 
+    public Node getByKey(int key) {
+        Node current = root;
+
+        while(current != null) {
+            System.out.println("node" + current);
+            if (current.getKey() == key) {
+                return current;
+            }
+            else if (key < current.getKey()) {
+                current = current.leftChild;
+            }
+            else {
+                current = current.rightChild;
+            }
+        }
+
+        // Not found
+        return null;
+    }
+
+    public Node getByKeyRecursively(int key) {
+        return getByKeyRecursivelyHelper(key, root);
+    }
+    public Node getByKeyRecursivelyHelper(int key, Node current) {
+        if (current == null) {
+            return null;
+        }
+        if (current.getKey() == key) {
+            return current;
+        }
+
+        if (key < current.getKey()) {
+           return getByKeyRecursivelyHelper(key, current.leftChild);
+        } else {
+            return getByKeyRecursivelyHelper(key, current.rightChild);
+        }
+    }
+
+    public void printSortedTree() {
+        printSortedTreeHelper(root);
+    }
+    public void printSortedTreeHelper(Node localRoot) {
+        // Recursively call until left most end of tree
+        if (localRoot.leftChild != null) {
+            printSortedTreeHelper(localRoot.leftChild);
+        }
+
+        // For each level of recursion print the value in Order (out of order at top or end oddly)
+        System.out.println(localRoot.key);
+
+        // For each level of left recursion visit right side as well
+        if (localRoot.rightChild != null) {
+            printSortedTreeHelper(localRoot.rightChild);
+        }
+    }
+
+
     // Find the Node with the smallest Key
     // The algorithm traverses the left side of tree from leftChild to leftChild until the bottom of the tree is reached
     // which is the smallest index in the BST.
-    public Node min() {
+    public Node minKey() {
         Node current = root;
 
         // go left until child null, this is the min based on DS
@@ -85,57 +141,20 @@ public class BinarySearchTree {
         return current;
     }
 
-    //TODO
-    public void printTree() {
-        printTree(root);
-    }
-    public void printTree(Node current) {
-        System.out.println(current.key);
-        if (current.leftChild != null) {
-            printTree(current.leftChild);
+
+    // Node with max key value will be furthest right Node
+    public Node maxKey() {
+        Node current = root;
+
+        // Traverses Right side of tree until bottom reached which is the greatest index in the BST.
+        while (current != null && current.rightChild != null) {
+            current = current.rightChild;
         }
-        if (current.rightChild != null) {
-            printTree(current.rightChild);
-        }
+
+        // End of Right side of tree, this is the max key.
+        return current;
     }
 
-    /**
-     * Inserts a newly created node in the related sorted position in the BST based on the key index.
-     *
-     * Note: if Keys Match, then insert as Left Child. (Not sure if this makes sense though to have duplicate keys?!)
-     */
-//    public void insert(int key, String value) {
-//        Node newNode = new Node(key, value);
-//
-//        // Empty tree, set new node as root and exit.
-//        if (root == null) {
-//            root = newNode;
-//            return;
-//        }
-//
-//        // Traverse the levels of the tree until a related Leaf node pointing to null is found, insert here.
-//        Node current = root;    // Traversing node
-//        Node parent;            // Parent of Current node
-//        while (true) {
-//            parent = current;
-//
-//            if (key < current.key) {    // Go left
-//                current = current.leftChild;
-//
-//                if (current == null) {  // Parent is the Leaf node, found spot insert and leave
-//                    parent.leftChild =  newNode;
-//                    return;
-//                }
-//            } else {    // go right
-//                current = current.rightChild;
-//
-//                if (current == null) {
-//                    parent.rightChild = newNode;
-//                    return;
-//                }
-//            }
-//        }
-//    }
 
     public boolean remove(int key) {
         Node currentNode = root;
@@ -237,21 +256,5 @@ public class BinarySearchTree {
         }
 
         return successor;
-    }
-
-
-
-    public Node findMax() {
-        Node current = root;
-        Node last = null;
-
-        // Traverses Right side of tree until bottom reached which is the greatest index in the BST.
-        while (current != null) {
-            last = current;
-            current = current.rightChild;
-        }
-
-        // End of Right side of tree, this is the max key.
-        return last;
     }
 }
